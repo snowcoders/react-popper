@@ -1,0 +1,74 @@
+{
+  "name": "react-popper-ts",
+  "version": "0.7.6",
+  "description": "React wrapper around PopperJS.",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "webpack --config webpack.dist.config.js",
+    "build-example": "webpack --config webpack.example.config.js",
+    "clean": "rimraf dist dist-example",
+    "prepare": "npm run clean && npm run build",
+    "start": "concurrently --kill-others \"npm run watch\" \"npm run serve\"",
+    "serve": "live-server --port=9090 --host=localhost --watch=dist,dist-example,index.html",
+    "watch": "concurrently \"npm run watch-src\" \"npm run watch-example\"",
+    "watch-src": "npm run build -- --watch",
+    "watch-example": "npm run build-example -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snowcoders/react-popper-ts"
+  },
+  "keywords": [
+    "react",
+    "react-popper-ts",
+    "popperjs",
+    "component",
+    "drop",
+    "tooltip",
+    "popover"
+  ],
+  "author": "snowcoders",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snowcoders/react-popper-ts/issues"
+  },
+  "homepage": "https://github.com/snowcoders/react-popper-ts",
+  "peerDependencies": {
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "tslib": "^1.9.0",
+    "popper.js": "^1.13.0-next.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.3",
+    "@types/node": "^8.5.2",
+    "@types/prop-types": "^15.5.2",
+    "@types/react": "^16.0.31",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-router-dom": "^4.2.3",
+    "@types/webpack": "^3.8.1",
+    "awesome-typescript-loader": "^3.4.1",
+    "classnames": "^2.2.5",
+    "concurrently": "^3.5.1",
+    "css-loader": "^0.28.7",
+    "live-server": "^1.2.0",
+    "node-sass": "^4.7.2",
+    "popper.js": "^1.13.0-next.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^6.0.6",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.19.1",
+    "tslib": "^1.9.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0"
+  }
+}

@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "module": "es6",
+        "target": "es6",
+        "moduleResolution": "node",
+        "jsx": "react",
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
+        "noUnusedLocals": false,
+        "forceConsistentCasingInFileNames": true,
+        "strictNullChecks": true,
+        "preserveConstEnums": true,
+        "importHelpers": true,
+        "declaration": true
+    },
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.tsx"
+    ],
+    "exclude": [
+        "./src/**/*.test.ts",
+        "./src/**/*.test.tsx"
+    ]
+}
