@@ -1,7 +1,7 @@
 ## React Popper - Typescript
 
 React wrapper around [PopperJS](https://github.com/FezVrasta/popper.js/)
-Fork of [React-Popper](github.com/souporserious/react-popper) and now has the following additional functionality
+Fork of [React-Popper](https://github.com/souporserious/react-popper) and now has the following additional functionality
  - More type-safe than before
  - Allows you to use whatever version of popper.js you want to use
  - Written in typescript so your *.d.ts will be correct
@@ -11,17 +11,17 @@ Fork of [React-Popper](github.com/souporserious/react-popper) and now has the fo
 
 ## Install
 
-`npm install react-popper-ts --save`
+`npm install @snowcoders/react-popper --save`
 
 ```html
-<script src="https://unpkg.com/react-popper-ts/dist/index.js"></script>
+<script src="https://unpkg.com/@snowcoders/react-popper/dist/index.js"></script>
 (UMD library exposed as `ReactPopper`)
 ```
 
 ## Usage
 
 ```js
-import { Manager, Target, Popper, Arrow } from 'react-popper'
+import { Manager, Target, Popper, Arrow } from '@snowcoders/react-popper'
 
 const PopperExample = () => (
   <Manager>
@@ -58,6 +58,6 @@ const PopperExample = () => (
 ## Running Locally
 
 1. `git clone https://github.com/snowcoders/react-popper`
-1. `cd react-popper-ts`
+1. `cd react-popper`
 1. `npm install`
 1. `npm run start`

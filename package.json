@@ -1,5 +1,5 @@
 {
-  "name": "react-popper-ts",
+  "name": "@snowcoders/react-popper",
   "version": "0.7.6",
   "description": "React wrapper around PopperJS.",
   "main": "dist/index.js",
@@ -24,7 +24,7 @@
   },
   "keywords": [
     "react",
-    "react-popper-ts",
+    "react-popper",
     "popperjs",
     "component",
     "drop",
