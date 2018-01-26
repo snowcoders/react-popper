@@ -1,3 +1,6 @@
+[![npm (scoped)](https://img.shields.io/npm/v/@snowcoders/react-popper.svg)](https://www.npmjs.com/package/@snowcoders/react-popper) 
+[![CircleCI branch](https://img.shields.io/circleci/project/github/snowcoders/react-popper.svg)](https://circleci.com/gh/snowcoders/react-popper)
+
 ## React Popper - Typescript
 
 React wrapper around [PopperJS](https://github.com/FezVrasta/popper.js/)
