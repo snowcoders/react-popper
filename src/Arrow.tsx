@@ -1,9 +1,7 @@
 import * as React from 'react'
 
 export interface IArrowChildProps {
-  arrowProps: {
-    ref: React.Ref<any>
-  };
+  ref: React.Ref<any>
 }
 
 export interface IArrowProps {
@@ -19,6 +17,6 @@ export class Arrow extends React.Component<IArrowProps> {
     }
 
     const arrowProps = { ref: arrowRef }
-    return this.props.componentFactory({ arrowProps })
+    return this.props.componentFactory(arrowProps)
   }
 }

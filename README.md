@@ -12,6 +12,7 @@ Fork of [React-Popper](https://github.com/souporserious/react-popper) and now ha
 ## Install
 
 `npm install @snowcoders/react-popper --save`
+`npm install popper.js[@version-of-choice] --save`
 
 ```html
 <script src="https://unpkg.com/@snowcoders/react-popper/dist/index.js"></script>
