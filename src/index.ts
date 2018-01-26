@@ -1,4 +1,4 @@
-export { Manager } from './Manager';
-export { Target } from './Target';
-export { Popper } from './Popper';
-export { Arrow } from './Arrow';
+export { Manager, IManagerProps } from './Manager';
+export { Target, ITargetProps, ITargetChildProps } from './Target';
+export { Popper, IPopperProps, IPopperChildProps } from './Popper';
+export { Arrow, IArrowProps, IArrowChildProps } from './Arrow';
