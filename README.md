@@ -24,38 +24,38 @@ Fork of [React-Popper](https://github.com/souporserious/react-popper) and now ha
 
 ## Usage
 
+See our (example)[./example/] for more details
+
 ```js
 import { Manager, Target, Popper, Arrow } from '@snowcoders/react-popper'
 
 const PopperExample = () => (
-  <Manager>
-      <span>I'm text before the</span>
-      {" "}
-      <Target componentFactory={(targetProps) => (
-          <span {...targetProps}>
-              Target Box
-          </span>
-      )}>
-      </Target>
-      <Popper
-          placement="bottom"
-          positionFixed={true}
-          componentFactory={(popperProps) => (
-              <span {...popperProps}>
-                  I'm the tooltip
-                  <Arrow componentFactory={(arrowProps) => (
-                      <span
-                          {...arrowProps}
-                          className="popper__arrow"
-                      />
-                  )}></Arrow>
-              </span>
-          )}
-      >
-      </Popper>
-      {" "}
-      <span>for the popover</span>
-  </Manager>
+    <Manager>
+        <div>
+            <span>I'm text before the</span>{" "}
+            <Target
+                componentFactory={(targetProps) => (
+                    <span {...targetProps}>
+                        Target Box
+                    </span>
+                )}
+            />
+            <Popper
+                placement="right"
+                componentFactory={(popperProps) => (
+                    <span {...popperProps}>
+                        I'm the tooltip
+                        <Arrow
+                            componentFactory={(arrowProps) => (
+                                <span {...arrowProps} />
+                            )}
+                        />
+                    </span>
+                )}
+            />{" "}
+            <span>for the popover</span>
+        </div>
+    </Manager>
 )
 ```
 
