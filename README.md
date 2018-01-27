@@ -24,7 +24,7 @@ Fork of [React-Popper](https://github.com/souporserious/react-popper) and now ha
 
 ## Usage
 
-See our (example)[./example/] for more details
+See our [example](./example/) for more details
 
 ```js
 import { Manager, Target, Popper, Arrow } from '@snowcoders/react-popper'
@@ -32,7 +32,7 @@ import { Manager, Target, Popper, Arrow } from '@snowcoders/react-popper'
 const PopperExample = () => (
     <Manager>
         <div>
-            <span>I'm text before the</span>{" "}
+            <span>I am text before the</span>{" "}
             <Target
                 componentFactory={(targetProps) => (
                     <span {...targetProps}>
@@ -44,7 +44,7 @@ const PopperExample = () => (
                 placement="right"
                 componentFactory={(popperProps) => (
                     <span {...popperProps}>
-                        I'm the tooltip
+                        I am the tooltip
                         <Arrow
                             componentFactory={(arrowProps) => (
                                 <span {...arrowProps} />
