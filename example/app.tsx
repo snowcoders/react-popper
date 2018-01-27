@@ -6,9 +6,9 @@ import { Manager, Target, Popper, Arrow } from "../dist/index";
 // Styles
 import "./app.scss";
 
-export interface IAppProps { }
+export interface IAppProps {}
 
-export interface IAppState { }
+export interface IAppState {}
 
 export class App extends React.Component<IAppProps, IAppState> {
     render() {
@@ -16,33 +16,27 @@ export class App extends React.Component<IAppProps, IAppState> {
             <div className="app">
                 <Manager>
                     <div className="container">
-                        <span>I'm text before the</span>
-                        {" "}
-                        <Target componentFactory={(targetProps) => (
-                            <span
-                                {...targetProps}
-                                style={{ fontWeight: 800 }}>
-                                Target Box
-                </span>
-                        )} />
-                        <Popper
-                            placement="right"
-                            componentFactory={(popperProps) => (
-                                <span
-                                    {...popperProps}
-                                    className={"popper"}
-                                >
-                                    I'm the tooltip
-                                    <Arrow componentFactory={(arrowProps) => (
-                                        <span
-                                            {...arrowProps}
-                                            className="popper__arrow"
-                                        />
-                                    )} />
+                        <span>I'm text before the</span>{" "}
+                        <Target
+                            componentFactory={(targetProps) => (
+                                <span {...targetProps} style={{ fontWeight: 800 }}>
+                                    Target Box
                                 </span>
                             )}
                         />
-                        {" "}
+                        <Popper
+                            placement="right"
+                            componentFactory={(popperProps) => (
+                                <span {...popperProps} className={"popper"}>
+                                    I'm the tooltip
+                                    <Arrow
+                                        componentFactory={(arrowProps) => (
+                                            <span {...arrowProps} className="popper__arrow" />
+                                        )}
+                                    />
+                                </span>
+                            )}
+                        />{" "}
                         <span>for the popover</span>
                     </div>
                 </Manager>
@@ -82,7 +76,7 @@ export class App extends React.Component<IAppProps, IAppState> {
                 </div>
             </Manager>
                         */}
-            </div >
+            </div>
         );
     }
 }

@@ -24,7 +24,7 @@
         > .overlay > .popper,
         > .popper {
             position: absolute;
-            background: #FFC107;
+            background: #ffc107;
             color: black;
             padding: $contentPadding;
             text-align: center;
@@ -35,9 +35,9 @@
                 border-style: solid;
                 position: absolute;
                 margin: -$arrowSize;
-                border-color: #FFC107;
+                border-color: #ffc107;
             }
-            
+
             &[data-placement^="top"] {
                 margin-bottom: $arrowSize;
                 border-radius: $contentBorderRadius $contentBorderRadius 0 0;

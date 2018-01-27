@@ -1,27 +1,28 @@
-import * as React from 'react'
+import * as React from "react";
 
 export interface IArrowChildProps {
-  ref: React.Ref<any>
+    ref: React.Ref<any>;
 }
 
 export interface IArrowProps {
-  componentFactory: (props: IArrowChildProps) => React.ReactNode,
+    componentFactory: (props: IArrowChildProps) => React.ReactNode;
 }
 
 export class Arrow extends React.Component<IArrowProps> {
-  static contextTypes = {
-    popper: () => { return null; },
-  }
-  render() {
+    static contextTypes = {
+        popper: () => {
+            return null;
+        },
+    };
+    render() {
+        const { popper } = this.context;
+        const arrowRef = (node: React.ReactNode) => {
+            if (popper != null) {
+                popper.setArrowNode(node);
+            }
+        };
 
-    const { popper } = this.context;
-    const arrowRef = (node: React.ReactNode) => {
-      if (popper != null) {
-        popper.setArrowNode(node)
-      }
+        const arrowProps = { ref: arrowRef };
+        return this.props.componentFactory(arrowProps);
     }
-
-    const arrowProps = { ref: arrowRef }
-    return this.props.componentFactory(arrowProps)
-  }
 }
