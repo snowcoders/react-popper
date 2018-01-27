@@ -2,7 +2,9 @@ import * as React from 'react'
 import PopperJS from 'popper.js'
 
 export interface IPopperChildProps {
-
+  style: any,
+  ref: (ref: React.ReactNode) => void,
+  'data-placement': string | null
 }
 
 export interface IPopperProps extends PopperJS.PopperOptions {
@@ -25,6 +27,7 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
   private _popper: PopperJS;
   private _arrowNode: React.ReactNode;
   private _node: Element;
+  private _component: React.ReactNode;
 
   constructor(props: IPopperProps) {
     super(props);
@@ -34,6 +37,7 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
     };
   }
 
+  // #region Child stuff
   getChildContext() {
     return {
       popper: {
@@ -43,21 +47,27 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
     }
   }
 
-  shouldComponentUpdate(nextProps: IPopperChildProps, nextState: IPopperState) {
-    // TODO if some props change, we should re-render
-    if (this.state.data == null && nextState.data == null) {
-      return false;
-    }
-    else if (this.state.data != null && nextState.data != null &&
-      JSON.stringify(this.state.data.offsets) !== JSON.stringify(nextState.data.offsets)) {
-      return false;
-    }
-    else {
-      return true;
-    }
+  _setArrowNode = (node: React.ReactNode) => {
+    this._arrowNode = node
   }
 
-  componentDidUpdate(lastProps: IPopperChildProps) {
+  _getArrowStyle = () => {
+    if (!this.state.data || !this.state.data.offsets.arrow) {
+      return {}
+    } else {
+      const { top, left } = this.state.data.offsets.arrow
+      return { top, left }
+    }
+  }
+  // #endregion
+
+  // #region Lifecycle stuff
+  shouldComponentUpdate(nextProps: IPopperProps, nextState: IPopperState) {
+    // TODO if some props change, we should re-render
+    return true;
+  }
+
+  componentDidUpdate(lastProps: IPopperProps) {
     // TODO if any of the popper props change, we should destroy and recreate popper
     // {
     //   this._destroyPopper()
@@ -70,34 +80,10 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
   componentWillUnmount() {
     this._destroyPopper()
   }
-
-  _setArrowNode = (node: React.ReactNode) => {
-    this._arrowNode = node
-  }
+  // #endregion
 
   _getTargetNode = () => {
     return this.context.popperManager.getTargetNode()
-  }
-
-  _isDataDirty = (data: PopperJS.Data) => {
-    if (this.state.data) {
-      return (
-        JSON.stringify(this.state.data.offsets) !== JSON.stringify(data.offsets)
-      )
-    } else {
-      return true
-    }
-  }
-
-  _updateStateModifier = {
-    enabled: true,
-    order: 900,
-    fn: (data: PopperJS.Data) => {
-      if (this._isDataDirty(data)) {
-        this.setState({ data })
-      }
-      return data
-    },
   }
 
   _createPopper() {
@@ -108,11 +94,21 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
       modifiers: {
         ...popperProps.modifiers,
         applyStyle: { enabled: false },
-        updateState: this._updateStateModifier,
         arrow: {
           element: this._arrowNode as any
         }
       },
+      onUpdate: (data: PopperJS.Data) => {
+        if (this.state.data == null && data == null) {
+        }
+        else if (this.state.data != null && data != null &&
+          JSON.stringify(this.state.data.offsets) === JSON.stringify(data.offsets)) {
+        }
+        else {
+          this.setState({ data });
+        }
+        return data;
+      }
     })
 
     // schedule an update to make sure everything gets positioned correctly
@@ -126,32 +122,23 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
     }
   }
 
-  _getArrowStyle = () => {
-    if (!this.state.data || !this.state.data.offsets.arrow) {
-      return {}
-    } else {
-      const { top, left } = this.state.data.offsets.arrow
-      return { top, left }
+  _setNodeRef = (node: Element) => {
+    this._node = node
+    if (this._node) {
+      this._createPopper();
     }
   }
 
   render() {
     const { componentFactory } = this.props
 
-    const popperRef = (node: Element) => {
-      this._node = node
-      if (node) {
-        this._createPopper();
-      } else {
-        this._destroyPopper();
-      }
-    }
-
-    return componentFactory({
+    this._component = componentFactory({
       style: this.state.data && this.state.data.styles,
-      ref: popperRef,
-      //['data-placement']: popperPlacement,
+      ref: this._setNodeRef,
+      'data-placement': this.state.data && this.state.data.placement,
       //['data-x-out-of-boundaries']: popperHide,
-    })
+    });
+
+    return this._component;
   }
 }

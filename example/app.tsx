@@ -1,15 +1,21 @@
 import * as React from "react";
 
+// Components
 import { Manager, Target, Popper, Arrow } from "../dist/index";
+
+// Styles
+import "./app.scss";
 
 export interface IAppProps { }
 
-export class App extends React.Component<IAppProps> {
+export interface IAppState { }
+
+export class App extends React.Component<IAppProps, IAppState> {
     render() {
         return (
-            <div>
+            <div className="app">
                 <Manager>
-                    <div style={{ position: 'relative', top: '100px' }}>
+                    <div className="container">
                         <span>I'm text before the</span>
                         {" "}
                         <Target componentFactory={(targetProps) => (
@@ -20,7 +26,7 @@ export class App extends React.Component<IAppProps> {
                 </span>
                         )} />
                         <Popper
-                            placement="bottom"
+                            placement="right"
                             componentFactory={(popperProps) => (
                                 <span
                                     {...popperProps}
@@ -76,7 +82,7 @@ export class App extends React.Component<IAppProps> {
                 </div>
             </Manager>
                         */}
-            </div>
+            </div >
         );
     }
 }
