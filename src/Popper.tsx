@@ -1,6 +1,5 @@
 import * as React from 'react'
 import PopperJS from 'popper.js'
-import * as PropTypes from 'prop-types';
 
 export interface IPopperChildProps {
 
@@ -16,11 +15,11 @@ export interface IPopperState {
 
 export class Popper extends React.Component<IPopperProps, IPopperState> {
   static contextTypes = {
-    popperManager: PropTypes.object,
+    popperManager: () => { return null; },
   }
 
   static childContextTypes = {
-    popper: PropTypes.object,
+    popper: () => { return null; },
   }
 
   private _popper: PopperJS;
@@ -118,7 +117,7 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
 
     // schedule an update to make sure everything gets positioned correctly
     // after being instantiated
-    this._popper.scheduleUpdate()
+    this._popper.scheduleUpdate();
   }
 
   _destroyPopper() {
@@ -153,12 +152,6 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
       ref: popperRef,
       //['data-placement']: popperPlacement,
       //['data-x-out-of-boundaries']: popperHide,
-      scheduleUpdate: () => {
-        // _createPopper will scheduleUpdate,
-        // so calling this before this._popper exists
-        // can be a noop.
-        this._popper && this._popper.scheduleUpdate();
-      },
     })
   }
 }

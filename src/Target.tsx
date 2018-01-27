@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as PropTypes from 'prop-types';
 
 export interface ITargetChildProps {
   ref: React.Ref<any>
@@ -11,7 +10,7 @@ export interface ITargetProps {
 
 export class Target extends React.Component<ITargetProps> {
   static contextTypes = {
-    popperManager: PropTypes.object,
+    popperManager: () => { return null; }
   }
 
   render() {

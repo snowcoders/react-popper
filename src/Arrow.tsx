@@ -9,11 +9,16 @@ export interface IArrowProps {
 }
 
 export class Arrow extends React.Component<IArrowProps> {
+  static contextTypes = {
+    popper: () => { return null; },
+  }
   render() {
 
-    const { popperManager } = this.context;
+    const { popper } = this.context;
     const arrowRef = (node: React.ReactNode) => {
-      popperManager.setArrowNode(node)
+      if (popper != null) {
+        popper.setArrowNode(node)
+      }
     }
 
     const arrowProps = { ref: arrowRef }

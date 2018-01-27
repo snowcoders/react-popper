@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from "prop-types";
 import Popper from "popper.js";
 
 export interface IManagerProps {
@@ -7,7 +6,7 @@ export interface IManagerProps {
 
 export class Manager extends React.Component<IManagerProps> {
   static childContextTypes = {
-    popperManager: PropTypes.object
+    popperManager: () => { return null; }
   }
 
   private _targetNode: React.ReactNode;

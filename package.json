@@ -1,6 +1,6 @@
 {
   "name": "@snowcoders/react-popper",
-  "version": "0.7.7",
+  "version": "0.7.8",
   "description": "React wrapper around PopperJS.",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
@@ -43,10 +43,7 @@
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0",
     "tslib": "^1.9.0",
-    "popper.js": "^1.13.0-next.1"
-  },
-  "dependencies": {
-    "prop-types": "^15.6.0"
+    "popper.js": "^1.12.0"
   },
   "devDependencies": {
     "@types/chai": "^4.0.10",
@@ -54,7 +51,6 @@
     "@types/enzyme": "^3.1.6",
     "@types/mocha": "^2.2.45",
     "@types/node": "^8.5.2",
-    "@types/prop-types": "^15.5.2",
     "@types/react-dom": "^16.0.3",
     "@types/react-router-dom": "^4.2.3",
     "@types/react": "^16.0.34",
