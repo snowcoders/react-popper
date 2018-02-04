@@ -1,6 +1,6 @@
 {
   "name": "@snowcoders/react-popper",
-  "version": "0.7.9",
+  "version": "0.7.91",
   "description": "React wrapper around PopperJS.",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
