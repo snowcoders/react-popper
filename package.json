@@ -41,10 +41,10 @@
   },
   "homepage": "https://github.com/snowcoders/react-popper",
   "peerDependencies": {
-    "react": ">= 15.4.0",
-    "react-dom": ">= 15.4.0",
-    "tslib": ">= 1.6.0",
-    "popper.js": ">= 1.12.0"
+    "react": ">=15.4.0",
+    "react-dom": ">=15.4.0",
+    "tslib": ">=1.6.0",
+    "popper.js": ">=1.12.0"
   },
   "devDependencies": {
     "@types/chai": "^4.0.10",

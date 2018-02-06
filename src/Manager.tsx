@@ -1,7 +1,6 @@
 import * as React from "react";
-import Popper from "popper.js";
 
-export interface IManagerProps {}
+export interface IManagerProps { }
 
 export class Manager extends React.Component<IManagerProps> {
     static childContextTypes = {

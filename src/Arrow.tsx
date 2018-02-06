@@ -14,15 +14,16 @@ export class Arrow extends React.Component<IArrowProps> {
             return null;
         },
     };
-    render() {
-        const { popper } = this.context;
-        const arrowRef = (node: React.ReactNode) => {
-            if (popper != null) {
-                popper.setArrowNode(node);
-            }
-        };
 
-        const arrowProps = { ref: arrowRef };
+    render() {
+        const arrowProps = { ref: this.setRef };
         return this.props.componentFactory(arrowProps);
     }
+
+    private setRef = (node: React.ReactNode) => {
+        const { popper } = this.context;
+        if (popper != null) {
+            popper.setArrowNode(node);
+        }
+    };
 }

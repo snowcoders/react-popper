@@ -1,5 +1,5 @@
 import * as React from "react";
-import PopperJS from "popper.js";
+import * as PopperJS from "popper.js";
 
 export interface IPopperChildProps {
     style: any;
@@ -7,12 +7,12 @@ export interface IPopperChildProps {
     "data-placement": string | null;
 }
 
-export interface IPopperProps extends PopperJS.PopperOptions {
+export interface IPopperProps extends Popper.PopperOptions {
     componentFactory: (popperProps: IPopperChildProps) => React.ReactNode;
 }
 
 export interface IPopperState {
-    data: PopperJS.Data | null;
+    data: Popper.Data | null;
 }
 
 export class Popper extends React.Component<IPopperProps, IPopperState> {
@@ -28,7 +28,7 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
         },
     };
 
-    private _popper: PopperJS;
+    private _popper: PopperJS.default;
     private _arrowNode: React.ReactNode;
     private _node: Element;
     private _component: React.ReactNode;
@@ -93,7 +93,7 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
     _createPopper() {
         const { componentFactory, children, ...popperProps } = this.props;
 
-        this._popper = new PopperJS(this._getTargetNode(), this._node, {
+        this._popper = new PopperJS.default(this._getTargetNode(), this._node, {
             ...popperProps,
             modifiers: {
                 ...popperProps.modifiers,
@@ -102,7 +102,7 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
                     element: this._arrowNode as any,
                 },
             },
-            onUpdate: (data: PopperJS.Data) => {
+            onUpdate: (data: Popper.Data) => {
                 if (this.state.data == null && data == null) {
                 } else if (
                     this.state.data != null &&
