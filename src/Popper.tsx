@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as PopperJS from "popper.js";
+import * as PopperJSDist from "popper.js/dist/popper";
 
 export interface IPopperChildProps {
     style: any;
@@ -93,7 +94,14 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
     _createPopper() {
         const { componentFactory, children, ...popperProps } = this.props;
 
-        this._popper = new PopperJS.default(this._getTargetNode(), this._node, {
+        let constructor = PopperJS.default;
+        if (constructor == null) {
+            // Not sure how someone got here but they did... I'm assuming their
+            // build system isn't using modules, attempting something else
+            constructor = PopperJSDist.default;
+        }
+
+        this._popper = new constructor(this._getTargetNode(), this._node, {
             ...popperProps,
             modifiers: {
                 ...popperProps.modifiers,

@@ -20,6 +20,19 @@ module.exports = function (config) {
             output: 'full'
         },
         karmaTypescriptConfig: {
+            bundlerOptions: {
+                transforms: [
+                    require("karma-typescript-es6-transform")({
+                        presets: [
+                            ["env", {
+                                targets: {
+                                    browsers: "last 2 versions"
+                                }
+                            }]
+                        ]
+                    })
+                ]
+            },
             coverageOptions: {
                 instrumentation: true,
                 exclude: /\.(d|spec|test)\.ts/i,
