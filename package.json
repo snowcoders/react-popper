@@ -1,6 +1,6 @@
 {
   "name": "@snowcoders/react-popper",
-  "version": "0.7.92",
+  "version": "0.7.93",
   "description": "React wrapper around PopperJS.",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,7 +10,7 @@
   "scripts": {
     "build": "webpack --config webpack.dist.config.js",
     "build-example": "webpack --config webpack.example.config.js",
-    "clean": "rimraf dist dist-example",
+    "clean": "rimraf coverage dist dist-example",
     "prepare": "npm run clean && npm run build",
     "prettier": "prettier --write \"{src,example}/**/*\"",
     "start": "concurrently --kill-others \"npm run watch\" \"npm run serve\"",
