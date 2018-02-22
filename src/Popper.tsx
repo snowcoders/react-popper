@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as PopperJS from "popper.js";
-import * as PopperJSDist from "popper.js/dist/popper";
+import * as PopperJSDist from "popper.js/dist/umd/popper";
 
 export interface IPopperChildProps {
     style: any;
