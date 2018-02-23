@@ -98,7 +98,7 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
         if (constructor == null) {
             // Not sure how someone got here but they did... I'm assuming their
             // build system isn't using modules, attempting something else
-            constructor = PopperJSDist.default;
+            constructor = PopperJSDist;
         }
 
         this._popper = new constructor(this._getTargetNode(), this._node, {
