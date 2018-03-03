@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as ReactDOM from "react-dom";
 
 export interface IManagerProps { }
 
@@ -9,7 +10,7 @@ export class Manager extends React.Component<IManagerProps> {
         },
     };
 
-    private _targetNode: React.ReactNode;
+    private _targetNode: Element;
 
     getChildContext() {
         return {
@@ -21,7 +22,7 @@ export class Manager extends React.Component<IManagerProps> {
     }
 
     _setTargetNode = (node: React.ReactNode) => {
-        this._targetNode = node;
+        this._targetNode = ReactDOM.findDOMNode(node as any);
     };
 
     _getTargetNode = () => {
