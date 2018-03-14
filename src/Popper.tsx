@@ -1,4 +1,5 @@
 import * as React from "react";
+import { PopperOptions, Data } from "popper.js";
 import * as PopperJS from "popper.js";
 import * as PopperJSDist from "popper.js/dist/umd/popper";
 
@@ -8,12 +9,12 @@ export interface IPopperChildProps {
     "data-placement": string | null;
 }
 
-export interface IPopperProps extends Popper.PopperOptions {
+export interface IPopperProps extends PopperOptions {
     componentFactory: (popperProps: IPopperChildProps) => React.ReactNode;
 }
 
 export interface IPopperState {
-    data: Popper.Data | null;
+    data: Data | null;
 }
 
 export class Popper extends React.Component<IPopperProps, IPopperState> {
@@ -110,7 +111,7 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
                     element: this._arrowNode as any,
                 },
             },
-            onUpdate: (data: Popper.Data) => {
+            onUpdate: (data: Data) => {
                 if (this.state.data == null && data == null) {
                 } else if (
                     this.state.data != null &&
