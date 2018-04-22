@@ -1,6 +1,10 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@snowcoders/react-popper.svg)](https://www.npmjs.com/package/@snowcoders/react-popper) 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/snowcoders/react-popper.svg)](https://circleci.com/gh/snowcoders/react-popper)
 
+## Future development notice
+
+The successor to [react-popper](https://github.com/FezVrasta/react-popper) (currently in beta) resolves many of the issues why this repository was initially forked. Once react-popper reaches a major verson, this repository will be deprecated. Until it comes out of beta, support for this repo will be provided for any and all issues.
+
 ## React Popper - Typescript
 
 React wrapper around [PopperJS](https://github.com/FezVrasta/popper.js/)
