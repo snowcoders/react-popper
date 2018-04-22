@@ -16,7 +16,10 @@ export class Arrow extends React.Component<IArrowProps> {
     };
 
     render() {
-        const arrowProps = { ref: this.setRef };
+        const arrowProps = {
+            ref: this.setRef,
+            style: this.getStyles()
+        };
         return this.props.componentFactory(arrowProps);
     }
 
@@ -25,5 +28,13 @@ export class Arrow extends React.Component<IArrowProps> {
         if (popper != null) {
             popper.setArrowNode(node);
         }
+    };
+
+    private getStyles() {
+        const { popper } = this.context;
+        if (popper != null) {
+            return popper.getArrowStyle();
+        }
+        return null;
     };
 }
