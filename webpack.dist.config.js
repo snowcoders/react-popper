@@ -21,6 +21,12 @@ const externals = {
     commonjs: 'popper.js',
     amd: 'popper.js',
   },
+  'tslib': {
+    root: 'tslib',
+    commonjs2: 'tslib',
+    commonjs: 'tslib',
+    amd: 'tslib',
+  },
 }
 
 var config = {
