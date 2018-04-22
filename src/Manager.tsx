@@ -22,7 +22,10 @@ export class Manager extends React.Component<IManagerProps> {
     }
 
     _setTargetNode = (node: React.ReactNode) => {
-        this._targetNode = ReactDOM.findDOMNode(node as any);
+        let result = ReactDOM.findDOMNode(node as any);
+        if (result != null) {
+            this._targetNode = result;
+        }
     };
 
     _getTargetNode = () => {
