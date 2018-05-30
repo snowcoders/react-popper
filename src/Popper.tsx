@@ -30,7 +30,7 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
         },
     };
 
-    private _popper: PopperJS.default;
+    private _popper: PopperJS.default | null;
     private _arrowNode: React.ReactNode;
     private _node: Element;
     private _component: React.ReactNode;
@@ -80,7 +80,9 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
         //   this._createPopper()
         // }
 
-        this._popper.scheduleUpdate();
+        if (this._popper != null) {
+            this._popper.scheduleUpdate();
+        }
     }
 
     componentWillUnmount() {
@@ -102,6 +104,7 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
             constructor = PopperJSDist;
         }
 
+        this._destroyPopper();
         this._popper = new constructor(this._getTargetNode(), this._node, {
             ...popperProps,
             modifiers: {
@@ -131,8 +134,9 @@ export class Popper extends React.Component<IPopperProps, IPopperState> {
     }
 
     _destroyPopper() {
-        if (this._popper) {
+        if (this._popper != null) {
             this._popper.destroy();
+            this._popper = null;
         }
     }
 
