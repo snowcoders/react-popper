@@ -1,3 +1,6 @@
+## Deprecation Notice
+The official version of react-popper has reached 1.0.0 and this library is now deprecated and will not receive new updates. Please contribute to and use https://github.com/FezVrasta/react-popper instead!
+
 [![npm (scoped)](https://img.shields.io/npm/v/@snowcoders/react-popper.svg)](https://www.npmjs.com/package/@snowcoders/react-popper) 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/snowcoders/react-popper.svg)](https://circleci.com/gh/snowcoders/react-popper)
 
